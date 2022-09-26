@@ -25,12 +25,14 @@ class AboutMethodBindings(Koan):
 
     def test_functions_have_attributes(self):
         obj = Class()
-        # self.assertEqual(35, len(dir(function)))
+        self.assertEqual(35, len(dir(function)))
         self.assertEqual(True, dir(function) == dir(obj.method.__func__))
 
-    # def test_methods_have_different_attributes(self):
-    #     obj = Class()
-    #     self.assertEqual(__, len(dir(obj.method)))
+    def test_methods_have_different_attributes(self):
+        obj = Class()
+        obj.method()
+        self.assertEqual(27, len(dir(obj.method)))
+  
 
     def test_setting_attributes_on_an_unbound_function(self):
         function.cherries = 3
